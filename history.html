@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - Ukrainian Culture</title>
+    <link rel="stylesheet" href="st.mykolai.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://i.guim.co.uk/img/media/d75f43dd9ad4c971082b29a57e147b3d2da21bcf/0_105_6720_4032/master/6720.jpg?width=620&quality=85&auto=format&fit=max&s=750356a34c0b9c2d8cb90596a44c6304)
+        }
+        .nav-bar {
+            background-color: #005b96;
+            padding: 1rem;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .content {
+            padding: 2rem;
+            text-align: center;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            color: #333;
+        }
+        .content-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .text-box {
+            width: 45%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .image-box {
+            width: 45%;
+        }
+        .image-box img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .more-info-box {
+            margin-top: 20px;
+        }
+        .more-info-link {
+            color: #005b96;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 2px solid #005b96;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .more-info-link:hover {
+            background-color: #005b96;
+            color: white;
+        }
+        
+        /* Pop-up Modal Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: white;
+            width: 60%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: popUpAnimation 0.5s ease-in-out;
+        }
+        .popup-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .popup-content .link-box {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .popup-content .link-box:hover {
+            transform: scale(1.05);
+        }
+        .popup-content a {
+            color: #005b96;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* Animation for pop-up */
+        @keyframes popUpAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        /* Style for the image container */
+.image-box {
+    max-width: 100%; /* Ensures it scales with container width */
+    margin: 20px 0; /* Adds space around the box */
+    padding: 10px; /* Adds internal space within the container */
+    background-color: #f9f9f9; /* Light background color for contrast */
+    border: 1px solid #ddd; /* Subtle border around the image */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    text-align: center; /* Centers the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for depth */
+}
+
+/* Style for the image */
+.image-box img {
+    max-width: 100%; /* Ensures the image doesn't exceed container width */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 4px; /* Rounded corners for the image */
+}
+
+/* Style for the paragraph text */
+.image-box p {
+    font-size: 14px; /* Adjusts font size */
+    color: #555; /* Dark gray text color */
+    margin-top: 10px; /* Adds space between the image and the text */
+}
+
+/* Style for the link in the paragraph */
+.image-box p a {
+    color: #007BFF; /* Adds a blue color to the link */
+    text-decoration: none; /* Removes underline from the link */
+    font-weight: bold; /* Makes the link text bold */
+}
+
+.image-box p a:hover {
+    text-decoration: underline; /* Underlines the link on hover */
+    color: #0056b3; /* Darkens the link color on hover */
+}
+/* Help Icon (same as on homepage) */
+.help-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.help-icon .tooltip {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    background-color: rgb(154, 200, 246);
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.help-icon:hover .tooltip {
+    display: block;
+}
+
+.help-icon-button {
+    background-color: #0073e6;
+    color: rgb(187, 217, 236);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <a href="ukraine.html" class="button">Home</a>
+        <a href="history.html" class="button">History</a>
+        <a href="cuisine.html" class="button">Cuisine</a>
+        <a href="traditions.html" class="button">Traditions</a>
+        <a href="funfacts.html" class="button">Fun Facts & Films</a>
+        <a href="aboutus.html" class="button">About</a>
+        <a href="contactus.html" class="button">Contact Us</a>
+    </div>
+<!-- Traditions Page Content -->
+<div class="content">
+    <h1 class="page-title">History of Ukraine</h1>
+    <h2 class="page-title">Історія України</h2>
+    <div class="content-container">
+        <div class="content-container">
+            <!-- Left Text Box -->
+            <div class="text-box">
+                <p>
+                    Ukraine's history is marked by periods of independence and foreign domination. In the 14th to 18th centuries, parts of Ukraine were under Lithuanian, Polish, and Russian control. The Cossacks established a self-governing territory known as the Hetmanate. In the 18th century, most of Ukraine fell under Russian rule. 
+In the early 20th century, Ukraine experienced a brief period of independence from 1918 to 1920. However, portions of western Ukraine were ruled by Poland, Romania, and Czechoslovakia during the interwar period. Ukraine then became part of the Soviet Union as the Ukrainian Soviet Socialist Republic. 
+Following the dissolution of the Soviet Union in 1991, Ukraine declared independence. In 2004, the Orange Revolution led to the election of Viktor Yushchenko as president. In 2014, the Euromaidan protests resulted in the removal of President Yanukovych and the annexation of Crimea by Russia. The conflict in eastern Ukraine escalated into a war between Ukrainian forces and Russian-backed separatists. 
+In 2022, Russia launched a full-scale invasion of Ukraine, leading to ongoing conflict. Despite these challenges, Ukraine has continued to seek closer ties with the United States, European Union, and NATO. 
+
+ 
+                </p>
+            </div>
+            <!-- Right Image Box -->
+            <div class="image-box">
+                <img src="https://eurasianet.org/sites/default/files/styles/article/public/images/101816_0.jpg?itok=eBAftbp0" alt="Ukrainian History" />
+                <p>Image credit: <a href="https://eurasianet.org/history-ukraine-big-ambitions-mixed-results">Eurasia.net/ukrainian history</a></p>        
+            </div>
+        </div>
+    </div>
+    <!-- Help Icon -->
+    <div class="help-icon">
+        <div class="tooltip">
+            Need help or assistance? Feel free to ask!
+            <a href="contactus.html" class="contact-button">Contact Us</a>
+        </div>
+        <div class="help-icon-button">
+            ?
+        </div>
+    </div>
+
+    <!-- More Info Box -->
+    <div class="more-info-box">
+        <a href="https://eurasianet.org/history-ukraine-big-ambitions-mixed-results" class="more-info-link">MORE INFO</a>
+    </div>
+
+    <!-- Pop-up Modal -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Learn More About Saint Mykolai</h2>
+            <div class="link-box">
+                <a href="https://www.britannica.com/summary/Ukraine">Source 1</a>
+            </div>
+            <div class="link-box">
+                <a href="https://ukraine.ua/explore/origins-history-of-ukraine/">Source 2</a>
+            </div>
+            <div class="link-box">
+                <a href="https://www.history.com/news/ukraine-timeline-invasions">Source 3</a>
+            </div>
+            <button onclick="togglePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle the pop-up visibility
+        function togglePopup() {
+            const popup = document.getElementById('popup');
+            if (popup.style.display === 'flex') {
+                popup.style.opacity = '0';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+            } else {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.opacity = '1';
+                }, 10);
+            }
+        }
+
+        // Automatically add a button for triggering the pop-up
+        const moreInfoLink = document.querySelector('.more-info-link');
+        moreInfoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            togglePopup();
+        });
+    </script>
+</body>
+</html>

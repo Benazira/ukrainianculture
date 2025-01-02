@@ -1,0 +1,210 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Elements */
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: -1;
+    animation: float 8s infinite ease-in-out;
+}
+
+.floating-1 {
+    width: 150px;
+    height: 150px;
+    background: #0057b7;
+    top: 10%;
+    left: 20%;
+}
+
+.floating-2 {
+    width: 100px;
+    height: 100px;
+    background: #ffd700;
+    top: 50%;
+    right: 15%;
+}
+
+.floating-3 {
+    width: 200px;
+    height: 200px;
+    background: #003366;
+    bottom: 10%;
+    left: 30%;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.nav-bar .button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 15px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar .button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+/* Header */
+.header {
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(to right, #0057b7, #ffd700);
+    color: white;
+}
+
+.animated-title {
+    font-size: 3rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 50px;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    margin: 20px;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* From the Author Section */
+.author-section {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.author-box {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 70%;
+    animation: zoomIn 1.5s ease-in-out;
+}
+
+.author-box h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #0057b7;
+    margin-bottom: 20px;
+}
+
+.author-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.author-content .image-container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: floatImage 4s infinite ease-in-out;
+}
+
+.author-content p {
+font-size: 1.1rem;
+line-height: 1.6;
+}
+
+.author-content p2 {
+font-style: italic;  /* This applies italic to p2 */
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+

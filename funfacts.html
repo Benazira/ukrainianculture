@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts & 3D Models</title>
+    <link rel="stylesheet" href="funfacts.css">
+</head>
+<body>
+
+    
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <a href="ukraine.html">Home</a>
+        <a href="history.html">History</a>
+        <a href="traditions.html">Traditions</a>
+        <a href="fun-facts.html">Fun Facts & 3D Models</a>
+        <a href="about.html">About</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1 class="animated-title">Fun Facts & 3D Models</h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <div class="fact-box" onclick="showNextFact()">
+            <p id="fact">Click here to discover a fun fact about Ukraine!</p>
+        </div>
+
+        <div class="start-again" id="start-again">
+            <button onclick="resetFacts()">Start Again</button>
+        </div>
+
+        <div class="credits">
+            <p>Information sourced from reliable cultural and historical references.</p>
+        </div>
+
+        <div class="models-section">
+            <h2>Explore 3D Models</h2>
+            <p>Click the link below to explore stunning 3D models related to Ukrainian culture:</p>
+            <a href="https://artsandculture.google.com/asset/st-george-s-cathedral-skeiron/8wFZZr5hwMx3zg" id="model-link" target="_blank">3D Models Link</a>
+        </div>
+        
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Ukrainian Culture. All rights reserved.
+    </footer>
+
+    <script>
+        const facts = [
+            "Ukraine is home to the deepest metro station in the world, Arsenalna, at 105.5 meters below ground.",
+            "The traditional Ukrainian embroidered shirt is called 'Vyshyvanka.'",
+            "Ukraine is one of the largest grain exporters in the world, earning it the nickname 'Breadbasket of Europe.'",
+            "The Tunnel of Love in Ukraine is a natural train tunnel surrounded by green arches.",
+            "Ukraine has seven UNESCO World Heritage Sites, including Saint Sophia Cathedral in Kyiv."
+        ];
+
+        let currentFactIndex = 0;
+
+        function showNextFact() {
+            const factBox = document.getElementById('fact');
+            const startAgainBtn = document.getElementById('start-again');
+
+            // Show next fact
+            if (currentFactIndex < facts.length) {
+                factBox.textContent = facts[currentFactIndex];
+                currentFactIndex++;
+            } else {
+                factBox.textContent = "That's all the facts! Thanks for learning about Ukraine.";
+                startAgainBtn.style.display = "block"; // Show the start again button when all facts are displayed
+            }
+        }
+
+        function resetFacts() {
+            currentFactIndex = 0;
+            const factBox = document.getElementById('fact');
+            factBox.textContent = "Click here to discover a fun fact about Ukraine!"; // Reset fact box text
+            const startAgainBtn = document.getElementById('start-again');
+            startAgainBtn.style.display = "none"; // Hide the start again button
+        }
+    </script>
+</body>
+</html>
+
+
+
+
